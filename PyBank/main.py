@@ -7,13 +7,13 @@ TotalMoney = []
 Change = [] 
 HighestProfit = []
 LowestProfit = []
-
 #create path for csv file
 csvpath = os.path.join("Resources", "budget_data.csv")
 #reading through the csv path with reader..
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     budgetheader = next(csvreader)
+    print("Financial Analysis")
     print("-----------------------------------------------")
     #looping through the rows to find total number of months
     for row in csvreader:
@@ -34,9 +34,21 @@ with open(csvpath) as csvfile:
     DateHighProfit = month [a + 1]
     b = Change.index(LowestProfit)
     DateLowProfit = month[b + 1]
-
+#Print Final Summary Analysis
 print(f'Total Months: {len(month)}')        
 print(f'Total: {sum(TotalMoney)}')
 print(f'Average Change: {averagechange}')
-print(f'Greatest Profit Increase: {DateHighProfit} ${HighestProfit}')
-print(f'Greatest Profit Decrease: {DateLowProfit} ${LowestProfit}')
+print(f'Greatest Profit Increase: {DateHighProfit} (${HighestProfit})')
+print(f'Greatest Profit Decrease: {DateLowProfit} (${LowestProfit})')
+#Send off Summary as Text file in Analysis folder
+#create path for text
+textpath = os.path.join("Analysis", "SumAnalysis.txt")
+output = open(textpath, "w")
+#write text same was as reader just move into writer format and use \n to form new line
+output.write('Financial Analysis: PyBank\n')
+output.write('------------------------------------\n')
+output.write((f'Total Months: {len(month)}\n'))
+output.write(f'Total: {sum(TotalMoney)}\n')
+output.write(f'Average Change: {averagechange}\n')
+output.write(f'Greatest Profit Increase: {DateHighProfit} (${HighestProfit})\n')
+output.write(f'Greatest Profit Decrease: {DateLowProfit} (${LowestProfit})')
