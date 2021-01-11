@@ -8,7 +8,6 @@ Change = []
 HighestProfit = []
 LowestProfit = []
 
-
 #create path for csv file
 csvpath = os.path.join("Resources", "budget_data.csv")
 #reading through the csv path with reader..
@@ -25,13 +24,19 @@ with open(csvpath) as csvfile:
         #calculate changes per row of profit/loss and find the average
     for row in range(len(TotalMoney) - 1):
         Change.append(TotalMoney[row + 1] - TotalMoney[row])
-        averagechange = sum(Change) / len(TotalMoney)
-        #Finding greatest profit increase
-        HighestProfit = max(Change)
-        #Finding greatest profit decrease
-        LowestProfit = min(Change)
+        averagechange = round(sum(Change) / len(Change), 2)
+    #Finding greatest profit increase with max function
+    HighestProfit = max(Change)
+    #Finding greatest profit decrease wtih min function
+    LowestProfit = min(Change)
+    #Use an index to find the dates of when profit was the highest/lowest
+    a = Change.index(HighestProfit)
+    DateHighProfit = month [a + 1]
+    b = Change.index(LowestProfit)
+    DateLowProfit = month[b + 1]
+
 print(f'Total Months: {len(month)}')        
 print(f'Total: {sum(TotalMoney)}')
-print(f'Change: {averagechange}')
-print(f'Greatest Profit Increase: {HighestProfit}')
-print(f'Greatest Profit Decrease: {LowestProfit}')
+print(f'Average Change: {averagechange}')
+print(f'Greatest Profit Increase: {DateHighProfit} ${HighestProfit}')
+print(f'Greatest Profit Decrease: {DateLowProfit} ${LowestProfit}')
