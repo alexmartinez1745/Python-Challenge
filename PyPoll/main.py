@@ -37,10 +37,13 @@ with open(csvpath) as csvfile:
         
 #print putcomes to summary table
 print("Election Results")
-print("------------------------------")
+print("-----------------------")
 print(f"Total Votes: {len(TotalVotes)}")
-print("------------------------------")
+print("-----------------------")
 print(f'{Canidates[0]}: {percentagevotes[0]}% ({CanidateVotes[0]}) ')
-
-print(f"Percentage: {percentagevotes}%")
+print(f'{Canidates[1]}: {percentagevotes[1]}% ({CanidateVotes[1]}) ')
+print(f'{Canidates[2]}: {percentagevotes[2]}% ({CanidateVotes[2]}) ')
+print(f'{Canidates[3]}: {percentagevotes[3]}% ({CanidateVotes[3]}) ')
+print("-----------------------")
 print(f"Winner: {Winner}")
+print("-----------------------")
