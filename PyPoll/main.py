@@ -14,12 +14,13 @@ with open(csvpath) as csvfile:
     #loop through rows to find total number of votes
     for row in csvreader:
         TotalVotes.append(row[0])
-        canidate = row[2]
-        if canidate in Canidates:
-            canidateindex = Canidates.index(canidate)
+        canidatename = row[2]
+        if canidatename in Canidates:
+            canidateindex = Canidates.index(canidatename)
+            CanidateVotes[canidateindex] = CanidateVotes[canidateindex] + 1
         else:
-            Canidates.append(canidate)
-
+            Canidates.append(canidatename)
+            CanidateVotes.append(1)
 #print putcomes to summary table
 print(f"Total Votes: {len(TotalVotes)}")
-print(f'{Canidates}')
+print(f'{list(Canidates)} {CanidateVotes}')
