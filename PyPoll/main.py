@@ -25,12 +25,11 @@ with open(csvpath) as csvfile:
         if canidatename in Canidates:
             canidateindex = Canidates.index(canidatename)
             CanidateVotes[canidateindex] = CanidateVotes[canidateindex] + 1
-            #Find winner with max function in voter index
-            Winner = Canidates[CanidateVotes.index(max(CanidateVotes))]
         else:    
             Canidates.append(canidatename)
             CanidateVotes.append(1)
-        
+            #Find winner with max function in voter index
+            Winner = Canidates[CanidateVotes.index(max(CanidateVotes))]
     #Calculate percent of votes with range of canidates
     for votecount in range(len(Canidates)):
         percent = round(((CanidateVotes[votecount]) / (len(TotalVotes))) * 100 , 2)
@@ -48,3 +47,20 @@ print(f'{Canidates[3]}: {percentagevotes[3]}% ({CanidateVotes[3]}) ')
 print("-----------------------")
 print(f"Winner: {Winner}")
 print("-----------------------")
+
+
+#create path for text file
+textpath = os.path.join("Analysis", "SummaryAnalysis.txt")
+output = open(textpath, "w")
+#write text same was as reader just move into writer format and use \n to form new line
+output.write("Election Results")
+output.write("-----------------------")
+output.write(f"Total Votes: {len(TotalVotes)}")
+output.write("-----------------------")
+output.write(f'{Canidates[0]}: {percentagevotes[0]}% ({CanidateVotes[0]}) ')
+output.write(f'{Canidates[1]}: {percentagevotes[1]}% ({CanidateVotes[1]}) ')
+output.write(f'{Canidates[2]}: {percentagevotes[2]}% ({CanidateVotes[2]}) ')
+output.write(f'{Canidates[3]}: {percentagevotes[3]}% ({CanidateVotes[3]}) ')
+output.write("-----------------------")
+output.write(f"Winner: {Winner}")
+output.write("-----------------------")
