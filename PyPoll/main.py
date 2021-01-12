@@ -26,12 +26,16 @@ with open(csvpath) as csvfile:
         else:
             Canidates.append(canidatename)
             CanidateVotes.append(1)
+    #Calculate percent of votes with range of canidates
     for votecount in range(len(Canidates)):
-        percent = ((CanidateVotes[votecount]) / (len(TotalVotes))) * 100
+        percent = round(((CanidateVotes[votecount]) / (len(TotalVotes))) * 100 , 2)
         percentagevotes.append(percent)
         
         
 #print putcomes to summary table
+print("Election Results")
+print("------------------------------")
 print(f"Total Votes: {len(TotalVotes)}")
+print("------------------------------")
 print(f'{list(Canidates)} {(CanidateVotes)}: ')
-print(f"Percentage: {percentagevotes}")
+print(f"Percentage: {percentagevotes}%")
