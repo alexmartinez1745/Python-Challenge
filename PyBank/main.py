@@ -37,7 +37,7 @@ with open(csvpath) as csvfile:
 #Print Final Summary Analysis
 print(f'Total Months: {len(month)}')        
 print(f'Total: {sum(TotalMoney)}')
-print(f'Average Change: {averagechange}')
+print(f'Average Change: ${averagechange}')
 print(f'Greatest Profit Increase: {DateHighProfit} (${HighestProfit})')
 print(f'Greatest Profit Decrease: {DateLowProfit} (${LowestProfit})')
 #Send off Summary as Text file in Analysis folder
@@ -49,6 +49,6 @@ output.write('Financial Analysis: PyBank\n')
 output.write('------------------------------------\n')
 output.write((f'Total Months: {len(month)}\n'))
 output.write(f'Total: {sum(TotalMoney)}\n')
-output.write(f'Average Change: {averagechange}\n')
+output.write(f'Average Change: ${averagechange}\n')
 output.write(f'Greatest Profit Increase: {DateHighProfit} (${HighestProfit})\n')
 output.write(f'Greatest Profit Decrease: {DateLowProfit} (${LowestProfit})')
