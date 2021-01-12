@@ -25,16 +25,17 @@ with open(csvpath) as csvfile:
         if canidatename in Canidates:
             canidateindex = Canidates.index(canidatename)
             CanidateVotes[canidateindex] = CanidateVotes[canidateindex] + 1
-        else:
+            #Find winner with max function in voter index
+            Winner = Canidates[CanidateVotes.index(max(CanidateVotes))]
+        else:    
             Canidates.append(canidatename)
             CanidateVotes.append(1)
+        
     #Calculate percent of votes with range of canidates
     for votecount in range(len(Canidates)):
         percent = round(((CanidateVotes[votecount]) / (len(TotalVotes))) * 100 , 2)
         percentagevotes.append(percent)
-        if maxvotes > max(percentagevotes):
-            Winner.append(maxvotes)
-        
+
 #print putcomes to summary table
 print("Election Results")
 print("-----------------------")
