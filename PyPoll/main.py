@@ -32,7 +32,7 @@ with open(csvpath) as csvfile:
     for votecount in range(len(Canidates)):
         percent = round(((CanidateVotes[votecount]) / (len(TotalVotes))) * 100 , 2)
         percentagevotes.append(percent)
-        if maxvotes > max(votecount):
+        if maxvotes > max(percentagevotes):
             Winner.append(maxvotes)
         
 #print putcomes to summary table
@@ -40,6 +40,7 @@ print("Election Results")
 print("------------------------------")
 print(f"Total Votes: {len(TotalVotes)}")
 print("------------------------------")
-print(f'{list(Canidates)} {(CanidateVotes)}: ')
+print(f'{Canidates[0]}: {percentagevotes[0]}% ({CanidateVotes[0]}) ')
+
 print(f"Percentage: {percentagevotes}%")
 print(f"Winner: {Winner}")
