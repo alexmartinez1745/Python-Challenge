@@ -3,7 +3,7 @@ import os
 import csv
 #variables that holds multiple data (list)
 TotalVotes = []
-
+Canidates = []
 #create path for csv file
 csvpath = os.path.join("Resources", "election_data.csv")
 #read through the csv path with reader
@@ -13,7 +13,8 @@ with open(csvpath) as csvfile:
     #loop through rows to find total number of votes
     for row in csvreader:
         TotalVotes.append(row[0])
-
-
-
+        if row not in Canidates:
+            Canidates.append(row[2])
+            print(Canidates)
+#print putcomes to summary table
 print(f"Total Votes: {len(TotalVotes)}")
