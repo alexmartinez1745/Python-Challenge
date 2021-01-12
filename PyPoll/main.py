@@ -8,7 +8,6 @@ CanidateVotes = []
 percentagevotes = []
 percent = 0
 Winner = []
-maxvotes = 0
 #create path for csv file
 csvpath = os.path.join("Resources", "election_data.csv")
 #read through the csv path with reader
